@@ -1,0 +1,316 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Cabin", sans-serif;
+}
+
+body {
+  background-color: #fff;
+  display: grid;
+  justify-content: center;
+}
+
+#telaInicial {
+  background-color: #2196f3;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  color: #fff;
+  animation: sumir 1s forwards 2s;
+  z-index: 4;
+  display: flex;
+}
+
+#telaInicial img {
+  width: 25%;
+  margin-top: 140px;
+}
+
+#telaInicial h1 {
+  letter-spacing: 2px;
+  animation: fade 1s 1;
+}
+
+header {
+  background-color: #2196f3;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  padding-inline: 25px;
+  height: 90px;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  border-bottom: 1px solid black;
+}
+
+header img {
+  width: 90px;
+}
+
+header h1 {
+  font-size: 25px;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+main {
+  column-count: 4;
+  margin: 150px 10px 10px 10px;
+  column-gap: 10px;
+  max-width: 1000px;
+}
+
+main img {
+  width: 100%;
+  opacity: 0;
+  border-radius: 3px;
+}
+
+main img:nth-child(1) {
+  animation: fadeImg 1s 1 2.2s forwards;
+}
+
+main img:nth-child(2) {
+  animation: fadeImg 1s 1 2.4s forwards;
+}
+
+main img:nth-child(3) {
+  animation: fadeImg 1s 1 2.6s forwards;
+}
+
+main img:nth-child(4) {
+  animation: fadeImg 1s 1 2.8s forwards;
+}
+
+main img:nth-child(5) {
+  animation: fadeImg 1s 1 3s forwards;
+}
+
+main img:nth-child(6) {
+  animation: fadeImg 1s 1 3.2s forwards;
+}
+
+main img:nth-child(7) {
+  animation: fadeImg 1s 1 3.4s forwards;
+}
+
+main img:nth-child(8) {
+  animation: fadeImg 1s 1 3.6s forwards;
+}
+
+main img:nth-child(9) {
+  animation: fadeImg 1s 1 4s forwards;
+}
+
+main img:nth-child(10) {
+  animation: fadeImg 1s 1 4.4s forwards;
+}
+
+footer {
+  margin: 40px;
+  text-align: center;
+}
+
+footer span {
+  color: #306472;
+}
+
+.Modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 80%;
+  background-color: #2196f3;
+  border-radius: 4px;
+  z-index: 3;
+  padding: 35px 15px 15px 15px;
+}
+
+.imgModal {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 30px;
+  opacity: 0;
+  transition: 0.5s ease;
+}
+
+.imgModal.active {
+  opacity: 1;
+}
+
+.Modal #prev {
+  width: 80px;
+  height: 80px;
+  background: #fff;
+  border-radius: 50px;
+}
+
+#prev {
+  left: -110px;
+  top: 40%;
+}
+
+.Modal #next {
+  width: 80px;
+  height: 80px;
+  transform: rotate(180deg);
+  background: #fff;
+  border-radius: 50px;
+}
+
+#next {
+  right: -110px;
+  top: 40%;
+}
+
+.Modal p {
+  font-size: 20px;
+  color: white;
+}
+
+.filtro {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 2;
+  display: none;
+}
+
+.filtro.active {
+  animation: fade 0.5s;
+  display: block;
+}
+
+#fecharModal {
+  padding: 40px;
+  position: fixed;
+  right: -5px;
+  top: -6px;
+}
+
+#fecharModal::after,
+#fecharModal::before {
+  content: " ";
+  display: block;
+  width: 26px;
+  height: 4px;
+  background-color: #fff;
+  position: absolute;
+  top: 20px;
+  right: 10px;
+}
+
+#fecharModal::after {
+  transform: rotate(-135deg);
+}
+
+#fecharModal::before {
+  transform: rotate(135deg);
+}
+
+.openModal {
+  display: block;
+  animation: fade 0.5s;
+}
+
+#next,
+#prev {
+  position: absolute;
+  filter: invert(100%);
+  width: 30px;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+    font-size: 16px;
+  }
+}
+
+@keyframes sumir {
+  100% {
+    opacity: 0;
+    left: 100%;
+  }
+}
+
+@keyframes fadeImg {
+  0% {
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 800px) {
+  main {
+    column-count: 2;
+    margin: 100px 10px 10px 10px;
+  }
+
+  header {
+    height: 70px;
+  }
+
+  header img {
+    width: 70px;
+  }
+
+  header h1 {
+    font-size: 20px;
+  }
+
+  .Modal {
+    width: 80%;
+    height: auto;
+    max-height: 100%;
+  }
+
+  .Modal .imgModal {
+    width: 100%;
+    max-height: 100%;
+  }
+
+  .Modal #prev {
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border-radius: 50px;
+  }
+
+  #prev {
+    left: 10px;
+    top: 40%;
+  }
+
+  .Modal #next {
+    width: 60px;
+    height: 60px;
+    transform: rotate(180deg);
+    background: #fff;
+    border-radius: 50px;
+  }
+
+  #next {
+    right: 10px;
+    top: 40%;
+  }
+
+  #telaInicial img {
+    width: 70%;
+  }
+}
